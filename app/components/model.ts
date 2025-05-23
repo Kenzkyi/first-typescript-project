@@ -1,10 +1,10 @@
 export interface oneBudget {
-  category: string;
-  maximum: number;
-  theme: string;
-  spent: number;
-  remaining: number;
-  id: number;
+  category?: string;
+  maximum?: number;
+  theme?: string;
+  spent?: number;
+  remaining?: number;
+  id?: number;
 }
 
 export interface onePot {
@@ -16,7 +16,7 @@ export interface onePot {
 }
 
 export interface oneBill {
-  avatar: unknown;
+  avatar: any;
   name: string;
   category: string;
   date: string;
@@ -54,19 +54,19 @@ export interface contextValue {
   setAllAvailablePots: React.Dispatch<React.SetStateAction<onePot[]>>;
   openEditPot: boolean;
   setOpenEditPot: React.Dispatch<React.SetStateAction<boolean>>;
-  singleEditingPot: onePot;
+  singleEditingPot: onePot | any;
   setSingleEditingPot: React.Dispatch<React.SetStateAction<onePot>>;
   openDeletePot: boolean;
   setOpenDeletePot: React.Dispatch<React.SetStateAction<boolean>>;
-  singleDeletingPot: onePot;
+  singleDeletingPot: onePot | any;
   setSingleDeletePot: React.Dispatch<React.SetStateAction<onePot>>;
   openAddMoney: boolean;
   setOpenAddMoney: React.Dispatch<React.SetStateAction<boolean>>;
-  singleAddMoneyDetails: onePot;
+  singleAddMoneyDetails: onePot | any;
   setSingleAddMoneyDetails: React.Dispatch<React.SetStateAction<onePot>>;
   openWithdrawMoney: boolean;
   setOpenWithdrawMoney: React.Dispatch<React.SetStateAction<boolean>>;
-  singleWithdrawMoneyDetails: onePot;
+  singleWithdrawMoneyDetails: onePot | any;
   setSingleWithdrawMoneyDetails: React.Dispatch<React.SetStateAction<onePot>>;
 }
 

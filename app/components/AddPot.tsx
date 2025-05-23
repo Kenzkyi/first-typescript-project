@@ -31,7 +31,7 @@ const AddPot = () => {
     }
     if (
       myValues?.allAvailablePots.find(
-        (item) => item.name.toLowerCase() === potName.toLowerCase()
+        (item) => item?.name.toLowerCase() === potName.toLowerCase()
       )
     ) {
       allError.potName = "Name already exist";

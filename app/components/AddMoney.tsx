@@ -6,10 +6,10 @@ import { useState } from "react";
 import { useFinanceContext } from "../context/FinanceContext";
 
 const AddMoney = () => {
-  const myValues = useFinanceContext()!;
+  const myValues = useFinanceContext();
   const [amount, setAmount] = useState<number>(0);
   const [error, setError] = useState<string>("");
-  const [newAmount, setNewAmount] = useState<number>(
+  const [newAmount, setNewAmount] = useState(
     myValues?.singleAddMoneyDetails?.total
   );
 

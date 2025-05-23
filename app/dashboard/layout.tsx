@@ -3,16 +3,17 @@ import SideNavbar from "@/app/components/SideNavbar";
 import DownNavbar from "../components/DownNavbar";
 import AddBudget from "../components/AddBudget";
 import EditBudget from "../components/EditBudget";
-import { useFinanceContext } from "../context/FinanceContext";
+import { myContext } from "../context/FinanceContext";
 import DeleteBudget from "../components/DeleteBudget";
 import AddPot from "../components/AddPot";
 import EditPot from "../components/EditPot";
 import DeletePot from "../components/DeletePot";
 import AddMoney from "../components/AddMoney";
 import WithdrawMoney from "../components/WithdrawMoney";
+import { useContext } from "react";
 
 const dashboardLayout = ({ children }: { children: React.ReactNode }) => {
-  const myValue = useFinanceContext()!;
+  const myValue = useContext(myContext);
   return (
     <div className="dashboardLayout">
       <div className="dashboardLayout-leftSide">
