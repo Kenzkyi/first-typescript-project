@@ -60,7 +60,7 @@ const Transactions = () => {
   const onPrevClick = () => {
     const perPage = 10;
     if (pageIndex !== 0) {
-      let prevIndex = pageIndex - 1;
+      const prevIndex = pageIndex - 1;
       setInitialSlice(perPage * prevIndex);
       setFinalSlice(perPage * prevIndex + 10);
       setPageIndex(pageIndex - 1);
@@ -71,7 +71,7 @@ const Transactions = () => {
   const onNextClick = () => {
     const perPage = 10;
     if (pageIndex < paginationIndex) {
-      let nextIndex = pageIndex + 1;
+      const nextIndex = pageIndex + 1;
       setInitialSlice(perPage * nextIndex);
       setFinalSlice(perPage * nextIndex + 10);
       setPageIndex(pageIndex + 1);
