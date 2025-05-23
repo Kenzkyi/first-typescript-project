@@ -6,10 +6,10 @@ import { useState } from "react";
 import { useFinanceContext } from "../context/FinanceContext";
 
 const AddMoney = () => {
-  const myValues = useFinanceContext();
+  const myValues = useFinanceContext()!;
   const [amount, setAmount] = useState<number>(0);
   const [error, setError] = useState<string>("");
-  const [newAmount, setNewAmount] = useState(
+  const [newAmount, setNewAmount] = useState<number>(
     myValues?.singleAddMoneyDetails?.total
   );
 
@@ -19,7 +19,7 @@ const AddMoney = () => {
         item.id === myValues?.singleAddMoneyDetails.id
           ? { ...item, total: newAmount }
           : item
-      )!;
+      );
       myValues?.setAllAvailablePots(updatedArray);
       myValues?.setOpenAddMoney(false);
     } else {

@@ -77,7 +77,7 @@ const AddPot = () => {
   };
 
   useEffect(() => {
-    let allError = {} as myErrorThree;
+    const allError = {} as myErrorThree;
     if (potName) {
       allError.potName = "";
     }
