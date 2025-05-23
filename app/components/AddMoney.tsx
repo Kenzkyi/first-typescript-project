@@ -8,9 +8,9 @@ import { useFinanceContext } from "../context/FinanceContext";
 const AddMoney = () => {
   const myValues = useFinanceContext()!;
   const [amount, setAmount] = useState<number>(0);
-  const [error, setError] = useState("");
-  const [newAmount, setNewAmount] = useState(
-    myValues?.singleAddMoneyDetails.total
+  const [error, setError] = useState<string>("");
+  const [newAmount, setNewAmount] = useState<number>(
+    myValues?.singleAddMoneyDetails?.total
   );
 
   const onConfirmAddition = () => {
@@ -31,7 +31,7 @@ const AddMoney = () => {
     <div className="addMoney" onClick={() => myValues?.setOpenAddMoney(false)}>
       <div className="addMoney-modal" onClick={(e) => e.stopPropagation()}>
         <div className="addMoney-modal-title">
-          <h2>Add to ‘{myValues?.singleAddMoneyDetails.name}’</h2>
+          <h2>Add to ‘{myValues?.singleAddMoneyDetails?.name}’</h2>
           <Image
             src={cancelIcon}
             height={25.5}

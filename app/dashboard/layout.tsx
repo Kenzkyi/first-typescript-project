@@ -12,7 +12,7 @@ import AddMoney from "../components/AddMoney";
 import WithdrawMoney from "../components/WithdrawMoney";
 
 const dashboardLayout = ({ children }: { children: React.ReactNode }) => {
-  const myValue = useFinanceContext();
+  const myValue = useFinanceContext()!;
   return (
     <div className="dashboardLayout">
       <div className="dashboardLayout-leftSide">

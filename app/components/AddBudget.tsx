@@ -44,7 +44,7 @@ const AddBudget = () => {
   };
 
   const validateForm = () => {
-    let allError = {} as myErrorTwo;
+    const allError = {} as myErrorTwo;
     if (
       myValues?.allAvailableBudget.find(
         (item) => item.category === categorySelected
