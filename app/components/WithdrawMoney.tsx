@@ -7,7 +7,7 @@ import { useFinanceContext } from "../context/FinanceContext";
 
 const WithdrawMoney = () => {
   const myValues = useFinanceContext()!;
-  const [amount, setAmount] = useState<number | null>(null);
+  const [amount, setAmount] = useState<number>(0);
   const [error, setError] = useState("");
   const [newAmount, setNewAmount] = useState<number>(
     myValues?.singleWithdrawMoneyDetails?.total
@@ -111,9 +111,9 @@ const WithdrawMoney = () => {
           <label>Amount to Withdraw</label>
           <input
             autoFocus
-            type="number"
+            type="text"
             placeholder="$ e.g. 200"
-            value={Number(amount)}
+            value={amount}
             onChange={(e) => {
               setError("");
               const value = Number(e.target.value);
