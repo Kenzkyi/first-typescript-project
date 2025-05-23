@@ -1,0 +1,663 @@
+@import 'mixcins';
+@import 'colors';
+@import 'element';
+.overview{
+  min-height: 100vh;
+  width: 100%;
+  padding: $spacing400 $spacing500;
+  display: flex;
+  gap: $spacing400;
+  flex-direction: column;
+
+  .overview-title{
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    font-size: $spacing200;
+    font-weight: 700;
+    letter-spacing: 0px;
+  }
+
+  @include respond (phone){
+    padding: $spacing300 $spacing200;
+  }
+
+}
+
+.overview-summary{
+  width: 100%;
+  min-height: 119px;
+  display: flex;
+  justify-content: space-between;
+
+  main{
+    height: 119px;
+    width: 32%;
+    background-color: #201F24;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing150;
+    padding: $spacing300;
+    border-radius: $spacing150;
+    color: white;
+
+    h6{
+        font-size: $spacing175;
+        font-weight: 400;
+    }
+
+    h5{
+        font-size: $spacing400;
+        font-weight: 700;
+    }
+  }
+
+  article{
+    @extend main;
+    background-color: white;
+    color: black;
+
+    h6{
+        color: $light_grey;
+    }
+  }
+
+  nav{
+    @extend article;
+  }
+
+  @include respond(phone){
+    flex-direction: column;
+    gap: $spacing200;
+    main,article,nav{
+        width: 100%;
+    }
+  }
+}
+
+.overview-content{
+    width: 100%;
+    min-height: 761px;
+    display: flex;
+    justify-content: space-between;
+
+    .overview-contentLeft{
+        min-height: 761px;
+        width: 57.4%;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing300;
+
+        .overview-contentLeftUp{
+            min-height: 218px;
+            width: 100%;
+            border-radius: 12px;
+            padding: $spacing400;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing250;
+            background-color: white;
+
+            header{
+                height: $spacing300;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h4{
+                    font-size: $spacing250;
+                    font-weight: 700;
+                    letter-spacing: 0px;
+                    color: $black;
+                }
+
+                button{
+                    width: 99px;
+                    height: 21px;
+                    display: flex;
+                    gap: $spacing150;
+                    outline: none;
+                    border: none;
+                    cursor: pointer;
+                    align-items: center;
+                    background: transparent;
+
+                    p{
+                      font-weight: 400;
+                      font-size: $spacing175;
+                      color: $light_grey;
+
+                    }
+                }
+            }
+
+            footer{
+                min-height: 110px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+    
+                nav{
+                  height: 110px;
+                  width: 48%;
+                  border-radius: $spacing150;
+                  padding: $spacing200;
+                  display: flex;
+                  gap: $spacing200;
+                  background-color: $primary_color;
+                  align-items: center;
+    
+                  div{
+                    height: 70px;
+                    width: 86px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 11px;
+    
+                    p{
+                        font-weight: 400;
+                        font-size: $spacing175;
+                        color: $light_grey;
+                    }
+    
+                    h6{
+                        font-weight: 700;
+                        font-size: $spacing400;
+                        color: $black;
+                    }
+                  }
+                }
+
+                main{
+                    height: 102px;
+                    width: 48%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: $spacing200;
+
+                    section{
+                        width: 103px;
+                        height: 43px;
+                        display: flex;
+                        gap: $spacing200;
+
+                        aside{
+                            background-color: $teen_green;
+                            height: 43px;
+                            width: $spacing50;
+                            border-radius: $spacing100;
+                        }
+
+                        div{
+                            height: 43px;
+                            width: 85px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+
+                            p{
+                                font-weight: 400;
+                                font-size: $spacing150;
+                                color: $light_grey;
+                            }
+
+                            h6{
+                                color: $black;
+                                font-weight: 700;
+                                font-size: $spacing175;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include respond (mini-laptop){
+                footer{
+                    flex-direction: column;
+                    gap: $spacing200;
+
+                    nav{
+                        width: 80%;
+                    }
+
+                    main{
+                        flex-direction: row;
+                        width: 80%;
+
+                        section{
+                            width: 45%;
+                        }
+                    }
+                }
+              }
+
+            @include respond (tablet){
+                footer{
+                    flex-direction: row;
+                    gap: 0px;
+
+                    nav{
+                        width: 48%;
+                    }
+
+                    main{
+                        flex-direction: row;
+                        width: 48%;
+
+                        section{
+                            width: 45%;
+                        }
+                    }
+                }
+              }
+
+              @include respond (phone){
+                footer{
+                    flex-direction: column;
+                    gap: $spacing200;
+
+                    nav{
+                        width: 100%;
+                    }
+
+                    main{
+                        flex-direction: row;
+                        width: 100%;
+
+                        section{
+                            width: 45%;
+                        }
+                    }
+                }
+              }
+        }
+
+        .overview-contentLeftDown{
+            width: 100%;
+            height: 512px;
+            border-radius: 12px;
+            padding: $spacing400;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing400;
+            background-color: white;
+
+            header{
+                width: 100%;
+                height: $spacing300;
+                display: flex;
+                justify-content: space-between;
+
+                h4{
+                    font-weight: 700;
+                    font-size: $spacing250;
+                    color: $black;
+                }
+
+                button{
+                    width: 77px;
+                    height: 21px;
+                    display: flex;
+                    gap: $spacing150;
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    cursor: pointer;
+
+                    p{
+                        font-weight: 400;
+                        font-size: $spacing175;
+                        color: $light_grey;
+                    }
+                }
+            }
+
+            footer{
+                width: 100%;
+                height: 410px;
+                display: flex;
+                flex-direction: column;
+                gap: $spacing150;
+
+                main{
+                    height: 69px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    border-top: 1px solid $dark_white;
+
+                    nav{
+                        height: 47px;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+
+                        article{
+                            height: 100%;
+                            width: 80%;
+                            display: flex;
+                            align-items: center;
+                            gap: $spacing200;
+
+                            h5{
+                                font-weight: 700;
+                                font-size: $spacing175;
+                                color: $black;
+                            }
+                        }
+
+                        div{
+                            width: 20%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-around;
+
+                            h6{
+                                font-weight: 700;
+                                font-size: $spacing175;
+                                color: $teen_green;
+                            }
+
+                            p{
+                                font-weight: 400;
+                                font-size: $spacing150;
+                                color: $light_grey;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include respond (phone){
+                padding: $spacing300;
+                footer{
+                    main{
+                        nav{
+                            article{
+                                width: 80%;
+                                gap: $spacing100;
+                            }
+
+                            div{
+                                width: 20%;
+                                align-items: flex-end;
+
+                                h6{
+                                    font-weight: 600;
+                                    font-size: $spacing150;
+                                }
+
+                                p{
+                                    font-size: $spacing100;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include respond (tablet){
+            width: 100%;
+        }
+    }
+
+    .overview-contentRight{
+        min-height: 761px;
+        width: 40.4%;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing300;
+
+        .overview-contentRightUp{
+            min-height: 410px;
+            width: 100%;
+            padding: $spacing400;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing250;
+            border-radius: 12px;
+            background-color: white;
+
+            header{
+                width: 100%;
+                height: $spacing300;
+                display: flex;
+                justify-content: space-between;
+
+                h4{
+                    font-size: $spacing250;
+                    font-weight: 700;
+                    color: $black;
+                }
+
+                button{
+                    height: 21px;
+                    width: 99px;
+                    display: flex;
+                    gap: $spacing150;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    background: transparent;
+                    align-items: center;
+
+                    p{
+                        font-weight: 400;
+                        font-size: $spacing175;
+                        color: $light_grey
+                    }
+                }
+            }
+
+            footer{
+                min-height: 302px;
+                width: 100%;
+                padding: $spacing100 0px;
+                display: flex;
+                gap: $spacing200;
+                align-items: center;
+
+                main{
+                    height: 220px;
+                    width: 101px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: $spacing200;
+
+                    article{
+                        height: 43px;
+                        width: 101px;
+                        display: flex;
+                        gap: $spacing150;
+
+                        aside{
+                            height: 100%;
+                            width: 4px;
+                            border-radius: $spacing100;
+                            background-color: $teen_green;
+                        }
+
+                        div{
+                            width: 81px;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 4px;
+                            justify-content: space-around;
+
+                            h6{
+                                font-weight: 400;
+                                font-size: $spacing150;
+                                color: $light_grey;
+                            }
+
+                            h5{
+                                color: $black;
+                                font-weight: 700;
+                                font-size: $spacing175;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include respond (mini-laptop){
+                footer{
+                    display: flex;
+                    flex-direction: column;
+                    gap: $spacing300;
+
+                    main{
+                        width: 95%;
+                        flex-wrap: wrap;
+                        height: 140px;
+                    }
+                }
+              }
+
+            @include respond (tablet){
+                footer{
+                    display: flex;
+                    flex-direction: row;
+                    gap: $spacing200;
+                    justify-content: flex-end;
+
+                    main{
+                        width: 101px;
+                        flex-wrap: wrap;
+                        height: 220px;
+                        margin-left: 25%;
+                    }
+                }
+              }
+
+              @include respond (phone){
+                footer{
+                    display: flex;
+                    flex-direction: column;
+                    gap: $spacing300;
+
+                    main{
+                        width: 95%;
+                        flex-wrap: wrap;
+                        min-height: 140px;
+                        margin-left: 0px;
+                    }
+                }
+              }
+        }
+
+        .overview-contentRightDown{
+            height: 327px;
+            width: 100%;
+            border-radius: 12px;
+            padding: $spacing400;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing400;
+            background-color: white;
+
+            header{
+                height: $spacing300;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                h4{
+                    font-weight: 700;
+                    font-size: $spacing250;
+                    color: $black;
+                }
+
+                button{
+                    height: 21px;
+                    width: 99px;
+                    display: flex;
+                    gap: $spacing150;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    background: transparent;
+                    align-items: center;
+
+                    p{
+                        font-weight: 400;
+                        font-size: $spacing175;
+                        color: $light_grey
+                    }
+                }
+            }
+
+            footer{
+                width: 100%;
+                height: 207px;
+                display: flex;
+                flex-direction: column;
+                gap: $spacing150;
+
+                section{
+                    background-color: $primary_color;
+                    height: 61px;
+                    width: 100%;
+                    border-radius: 8px;
+                    padding: $spacing250 $spacing200;
+                    border-left: 4px solid $teen_green;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    p{
+                        color: $light_grey;
+                        font-weight: 400;
+                        font-size: $spacing175;
+                    }
+
+                    h6{
+                        color: $black;
+                        font-weight: 700;
+                        font-size: $spacing175;
+                    }
+                }
+            }
+
+            @include respond(mini-laptop){
+                header{
+                    h4{
+                        font-size: $spacing200;
+                    }
+                }
+            }
+
+            @include respond(tablet){
+                header{
+                    h4{
+                        font-size: $spacing250;
+                    }
+                }
+            }
+
+            @include respond(phone){
+                header{
+                    h4{
+                        font-size: $spacing200;
+                    }
+                }
+            }
+        }
+
+        @include respond (tablet) {
+            width: 100%;
+        }
+    }
+
+    @include respond (tablet){
+        flex-direction: column;
+        gap: $spacing300;
+    }
+}

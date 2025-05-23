@@ -1,0 +1,61 @@
+@import 'mixcins';
+@import 'colors';
+@import 'element';
+
+.DownNavbar{
+    height: 100%;
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+    display: flex;
+    justify-content: center;
+    padding-top: $spacing100;
+    background-color: $black;
+}
+
+.DownNavbar-holder{
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+    main{
+        height: 100%;
+        width: 104px;
+        border-radius: 8px 8px 0px 0px;
+        border-bottom: 4px solid $teen_green;
+        background-color: $primary_color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        h6{
+            font-weight: 700;
+            font-size: 12px;
+            color: $black;
+        }
+    }
+
+    section{
+        @extend main;
+        background-color: $black;
+        border: none;
+
+        h6{
+            color: $light_grey;
+        }
+    }
+
+    @include respond (phone) {
+        width: 91.5%;
+
+        main,section{
+            width: 68.6px;
+
+            h6{
+                display: none;
+            }
+        }
+    }
+}

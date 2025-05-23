@@ -1,0 +1,54 @@
+.sideNavbar{
+    height: 100%;
+    width: 100%;
+    background-color: #201F24;
+    border-radius: 0px 16px 12px 0px;
+}
+.sideNavbar-logo{
+    height: 101px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+.sideNavbar-holder{
+    min-height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    main{
+        height: 56px;
+        width: 92%;
+        border-radius: 0px 12px 12px 0px;
+        background-color: #F8F4F0;
+        border-left: 4px solid #277C78;
+        padding-left: 30px;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+
+        h6{
+            font-weight: 700;
+            letter-spacing: 0px;
+            color: #201F24;
+            font-size: 16px;
+        }
+    }
+
+    section{
+        width: 92%;
+        height: 56px;
+        padding-left: 30px;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+
+        h6{
+            font-weight: 700;
+            letter-spacing: 0px;
+            color: #B3B3B3;
+            font-size: 16px;
+        }
+    }
+}
