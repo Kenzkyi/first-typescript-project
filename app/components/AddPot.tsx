@@ -3,7 +3,6 @@ import "@/app/styles/addComponent.scss";
 import cancelIcon from "@/app/asset/public/cancelIcon.svg";
 import Image from "next/image";
 import arrowDown from "@/app/asset/public/arrowDown.svg";
-import { allTransactions } from "../asset/datas";
 import { useEffect, useState } from "react";
 import { useFinanceContext } from "../context/FinanceContext";
 import { myErrorThree, oneColor } from "./model";
@@ -26,7 +25,7 @@ const AddPot = () => {
   };
 
   const validateForm = () => {
-    let allError = {} as myErrorThree;
+    const allError = {} as myErrorThree;
     if (potName.trim() === "") {
       allError.potName = "Please enter a pot name";
     }

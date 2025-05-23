@@ -10,7 +10,6 @@ import EditPot from "../components/EditPot";
 import DeletePot from "../components/DeletePot";
 import AddMoney from "../components/AddMoney";
 import WithdrawMoney from "../components/WithdrawMoney";
-import React from "react";
 
 const dashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const myValue = useFinanceContext();

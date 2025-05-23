@@ -3,13 +3,12 @@ import "@/app/styles/addComponent.scss";
 import cancelIcon from "@/app/asset/public/cancelIcon.svg";
 import Image from "next/image";
 import arrowDown from "@/app/asset/public/arrowDown.svg";
-import { colorDropArray } from "../asset/datas";
 import { useState } from "react";
 import { useFinanceContext } from "../context/FinanceContext";
 import { myErrorTwo, oneColor } from "./model";
 
 const EditBudget = () => {
-  const myValues = useFinanceContext();
+  const myValues = useFinanceContext()!;
   const [showColorDropdown, setShowColorDropdown] = useState(false);
   const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
   const [maximumSpend, setMaximumSpend] = useState(
@@ -49,7 +48,7 @@ const EditBudget = () => {
   };
 
   const validateForm = () => {
-    let allError = {} as myErrorTwo;
+    const allError = {} as myErrorTwo;
     if (maximumSpend.toString().trim() === "") {
       allError.maximumSpend = "Please input amount";
     }

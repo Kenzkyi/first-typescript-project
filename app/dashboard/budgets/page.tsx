@@ -5,13 +5,13 @@ import Image from "next/image";
 import budgetsChart from "@/app/asset/public/budgetChart.png";
 import threeDots from "@/app/asset/public/threeDots.svg";
 import seeMore from "@/app/asset/public/seeMoreArrow.svg";
-import { allBudgets, allTransactions } from "@/app/asset/datas";
+import { allTransactions } from "@/app/asset/datas";
 import { useFinanceContext } from "@/app/context/FinanceContext";
 import { oneBudget } from "@/app/components/model";
 
 const Budgets = () => {
   const [showThreedots, setShowThreedots] = useState<number | null>(null);
-  const myValues = useFinanceContext();
+  const myValues = useFinanceContext()!;
 
   const onclickOnEditBudget = (budgetItem: oneBudget) => {
     myValues?.setSingleEditingBudget(budgetItem);

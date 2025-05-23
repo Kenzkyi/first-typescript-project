@@ -9,7 +9,7 @@ import { useFinanceContext } from "../context/FinanceContext";
 import { myError, oneColor } from "./model";
 
 const EditPot = () => {
-  const myValues = useFinanceContext();
+  const myValues = useFinanceContext()!;
   const [showColorDropdown, setShowColorDropdown] = useState(false);
   const [target, setTarget] = useState(myValues?.singleEditingPot.target);
   const [error, setError] = useState<myError | null>(null);
@@ -27,7 +27,7 @@ const EditPot = () => {
   };
 
   const validateForm = () => {
-    let allError = {} as myError;
+    const allError = {} as myError;
     if (target.toString().trim() === "") {
       allError.target = "Please input amount";
     }

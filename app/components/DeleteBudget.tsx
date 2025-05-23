@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useFinanceContext } from "../context/FinanceContext";
 
 const DeleteBudget = () => {
-  const myValues = useFinanceContext();
+  const myValues = useFinanceContext()!;
 
   const confirmDeletion = () => {
     const updatedArray = myValues?.allAvailableBudget.filter(

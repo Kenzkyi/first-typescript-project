@@ -13,7 +13,7 @@ const AddBudget = () => {
   const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
   const [maximumSpend, setMaximumSpend] = useState("");
   const [error, setError] = useState<myErrorTwo | null>(null);
-  const myValues = useFinanceContext();
+  const myValues = useFinanceContext()!;
   const [colorSelected, setColorSelected] = useState({
     name: "Green",
     hex: "#277C78",
@@ -129,7 +129,7 @@ const AddBudget = () => {
   };
 
   useEffect(() => {
-    let allError = {} as myErrorTwo;
+    const allError = {} as myErrorTwo;
     if (categorySelected) {
       allError.category = "";
     }

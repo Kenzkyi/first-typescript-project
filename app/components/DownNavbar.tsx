@@ -2,8 +2,7 @@
 import React from "react";
 import "@/app/styles/downNavbar.scss";
 import Image from "next/image";
-import homeIcon from "@/app/asset/public/overviewActive.png";
-import navBar from "../asset/navBar";
+import { navBar } from "../asset/navBar";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
