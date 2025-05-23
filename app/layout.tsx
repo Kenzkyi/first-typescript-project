@@ -14,7 +14,15 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* <meta charSet="UTF-8" /> */}
-        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="https://kenz-innovations.com/images/logo-01.png"
+        />
+        <meta
+          name="description"
+          content="This app helps you keep account of money inflows and outflows"
+        />
         <title>Personal Finance app</title>
       </head>
       <body className={`${publicSans.className} antialiased`}>
