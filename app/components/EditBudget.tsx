@@ -12,17 +12,17 @@ const EditBudget = () => {
   const [showColorDropdown, setShowColorDropdown] = useState(false);
   const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
   const [maximumSpend, setMaximumSpend] = useState(
-    myValues?.singleEditingBudget.maximum
+    myValues?.singleEditingBudget?.maximum
   );
   const [error, setError] = useState<myErrorTwo | null>(null);
 
   const [colorSelected, setColorSelected] = useState<oneColor>(
     myValues?.allAvailableColors.find(
-      (item) => item.hex === myValues?.singleEditingBudget.theme
+      (item) => item.hex === myValues?.singleEditingBudget?.theme
     ) || myValues?.allAvailableColors[0]
   );
   const [categorySelected, setCategorySelected] = useState(
-    myValues?.singleEditingBudget.category
+    myValues?.singleEditingBudget?.category
   );
   const category = [
     "Entertainment",
@@ -49,10 +49,10 @@ const EditBudget = () => {
 
   const validateForm = () => {
     const allError = {} as myErrorTwo;
-    if (maximumSpend.toString().trim() === "") {
+    if (maximumSpend?.toString().trim() === "") {
       allError.maximumSpend = "Please input amount";
     }
-    if (maximumSpend.toString().trim() !== "" && !Number(maximumSpend)) {
+    if (maximumSpend?.toString().trim() !== "" && !Number(maximumSpend)) {
       allError.maximumSpend = "Enter a valid amount";
     }
 
@@ -64,7 +64,7 @@ const EditBudget = () => {
     let newColorArray = [];
     if (validateForm()) {
       const updatedArray = myValues?.allAvailableBudget.map((item) =>
-        item.id === myValues?.singleEditingBudget.id
+        item.id === myValues?.singleEditingBudget?.id
           ? {
               ...item,
               theme: colorSelected.hex,
@@ -77,7 +77,7 @@ const EditBudget = () => {
             }
           : item
       );
-      if (colorSelected.hex === myValues?.singleEditingBudget.theme) {
+      if (colorSelected.hex === myValues?.singleEditingBudget?.theme) {
         newColorArray = myValues?.allAvailableColors.map((item) =>
           item.hex === colorSelected.hex ? { ...item, alreadyUsed: true } : item
         );
@@ -89,7 +89,7 @@ const EditBudget = () => {
               : item
           )
           .map((item) =>
-            item.hex === myValues?.singleEditingBudget.theme
+            item.hex === myValues?.singleEditingBudget?.theme
               ? { ...item, alreadyUsed: false }
               : item
           );

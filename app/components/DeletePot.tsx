@@ -9,10 +9,10 @@ const DeleteBudget = () => {
 
   const confirmDeletion = () => {
     const updatedArray = myValues?.allAvailablePots.filter(
-      (item) => item.id !== myValues?.singleDeletingPot.id
+      (item) => item.id !== myValues?.singleDeletingPot?.id
     );
     const updatedColorArray = myValues?.allAvailablePotColors.map((item) =>
-      item.hex === myValues?.singleDeletingPot.theme
+      item.hex === myValues?.singleDeletingPot?.theme
         ? { ...item, alreadyUsed: false }
         : item
     );
@@ -27,7 +27,7 @@ const DeleteBudget = () => {
       onClick={() => myValues?.setOpenDeletePot(false)}>
       <div className="deleteBudget-modal" onClick={(e) => e.stopPropagation()}>
         <div className="deleteBudget-modal-title">
-          <h2>Delete ‘{myValues?.singleDeletingPot.name}’?</h2>
+          <h2>Delete ‘{myValues?.singleDeletingPot?.name}’?</h2>
           <Image
             src={cancelIcon}
             height={25.5}

@@ -9,10 +9,10 @@ const DeleteBudget = () => {
 
   const confirmDeletion = () => {
     const updatedArray = myValues?.allAvailableBudget.filter(
-      (item) => item.id !== myValues?.singleDeletingBudget.id
+      (item) => item.id !== myValues?.singleDeletingBudget?.id
     );
     const updatedColorArray = myValues?.allAvailableColors.map((item) =>
-      item.hex === myValues?.singleDeletingBudget.theme
+      item.hex === myValues?.singleDeletingBudget?.theme
         ? { ...item, alreadyUsed: false }
         : item
     );
@@ -27,7 +27,7 @@ const DeleteBudget = () => {
       onClick={() => myValues?.setOpenDeleteBudget(false)}>
       <div className="deleteBudget-modal" onClick={(e) => e.stopPropagation()}>
         <div className="deleteBudget-modal-title">
-          <h2>Delete ‘{myValues?.singleDeletingBudget.category}’?</h2>
+          <h2>Delete ‘{myValues?.singleDeletingBudget?.category}’?</h2>
           <Image
             src={cancelIcon}
             height={25.5}

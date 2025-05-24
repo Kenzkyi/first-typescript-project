@@ -21,15 +21,16 @@ const FinanceContext = ({ children }: { children: React.ReactNode }) => {
   const [openDeletePot, setOpenDeletePot] = useState<boolean>(false);
   const [openAddMoney, setOpenAddMoney] = useState<boolean>(false);
   const [openWithdrawMoney, setOpenWithdrawMoney] = useState<boolean>(false);
-  const [singleEditingBudget, setSingleEditingBudget] = useState<object>({});
-  const [singleDeletingBudget, setSingleDeleteBudget] = useState<object>({});
-  const [singleEditingPot, setSingleEditingPot] = useState<object>({});
-  const [singleDeletingPot, setSingleDeletePot] = useState<object>({});
-  const [singleAddMoneyDetails, setSingleAddMoneyDetails] = useState<object>(
-    {}
-  );
+  const [singleEditingBudget, setSingleEditingBudget] =
+    useState<oneBudget | null>(null);
+  const [singleDeletingBudget, setSingleDeleteBudget] =
+    useState<oneBudget | null>(null);
+  const [singleEditingPot, setSingleEditingPot] = useState<onePot | null>(null);
+  const [singleDeletingPot, setSingleDeletePot] = useState<onePot | null>(null);
+  const [singleAddMoneyDetails, setSingleAddMoneyDetails] =
+    useState<onePot | null>(null);
   const [singleWithdrawMoneyDetails, setSingleWithdrawMoneyDetails] =
-    useState<object>({});
+    useState<onePot | null>(null);
   const [allAvailableBudget, setAllAvailableBudget] =
     useState<oneBudget[]>(allBudgets);
   const [allAvailablePots, setAllAvailablePots] = useState<onePot[]>(allPots);

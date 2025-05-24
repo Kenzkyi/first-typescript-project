@@ -4,22 +4,23 @@ import cancelIcon from "@/app/asset/public/cancelIcon.svg";
 import Image from "next/image";
 import { useState } from "react";
 import { useFinanceContext } from "../context/FinanceContext";
+import { onePot } from "./model";
 
 const AddMoney = () => {
   const myValues = useFinanceContext()!;
   const [amount, setAmount] = useState<number>(0);
   const [error, setError] = useState<string>("");
-  const [newAmount, setNewAmount] = useState<number>(
-    myValues?.singleAddMoneyDetails?.total
+  const [newAmount, setNewAmount] = useState<number | null>(
+    myValues?.singleAddMoneyDetails?.total || null
   );
 
   const onConfirmAddition = () => {
     if (Number(amount) >= 1) {
       const updatedArray = myValues?.allAvailablePots.map((item) =>
-        item.id === myValues?.singleAddMoneyDetails.id
+        item.id === myValues?.singleAddMoneyDetails?.id
           ? { ...item, total: newAmount }
           : item
-      );
+      ) as onePot[];
       myValues?.setAllAvailablePots(updatedArray);
       myValues?.setOpenAddMoney(false);
     } else {
@@ -55,31 +56,33 @@ const AddMoney = () => {
               <div
                 style={{
                   width: `${(
-                    (myValues?.singleAddMoneyDetails.total /
-                      myValues?.singleAddMoneyDetails.target) *
+                    (Number(myValues?.singleAddMoneyDetails?.total) /
+                      Number(myValues?.singleAddMoneyDetails?.target)) *
                     100
                   ).toFixed(2)}%`,
                 }}></div>
               <aside
                 style={{
                   width: `${(
-                    (Number(amount) / myValues?.singleAddMoneyDetails.target) *
+                    (Number(amount) /
+                      Number(myValues?.singleAddMoneyDetails?.target)) *
                     100
                   ).toFixed(2)}%`,
                   maxWidth: `${(
                     100 -
-                    (myValues?.singleAddMoneyDetails.total /
-                      myValues?.singleAddMoneyDetails.target) *
+                    (Number(myValues?.singleAddMoneyDetails?.total) /
+                      Number(myValues?.singleAddMoneyDetails?.target)) *
                       100
                   ).toFixed(2)}%`,
                 }}></aside>
             </section>
             <article>
               <h3>{`${(
-                (Number(amount) / myValues?.singleAddMoneyDetails.target) *
+                (Number(amount) /
+                  Number(myValues?.singleAddMoneyDetails?.target)) *
                 100
               ).toFixed(2)}%`}</h3>
-              <h4>Target of ${myValues?.singleAddMoneyDetails.target}</h4>
+              <h4>Target of ${myValues?.singleAddMoneyDetails?.target}</h4>
             </article>
           </footer>
         </main>
@@ -94,12 +97,12 @@ const AddMoney = () => {
               setError("");
               const value = Number(e.target.value);
               if (
-                value + Number(myValues?.singleAddMoneyDetails.total) <=
-                myValues?.singleAddMoneyDetails.target
+                value + Number(myValues?.singleAddMoneyDetails?.total) <=
+                Number(myValues?.singleAddMoneyDetails?.target)
               ) {
                 setAmount(Number(e.target.value));
                 setNewAmount(
-                  Number(myValues?.singleAddMoneyDetails.total) +
+                  Number(myValues?.singleAddMoneyDetails?.total) +
                     Number(e.target.value)
                 );
               }

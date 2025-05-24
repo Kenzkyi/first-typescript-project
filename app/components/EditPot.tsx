@@ -10,15 +10,15 @@ import { myError, oneColor } from "./model";
 const EditPot = () => {
   const myValues = useFinanceContext()!;
   const [showColorDropdown, setShowColorDropdown] = useState(false);
-  const [target, setTarget] = useState(myValues?.singleEditingPot.target);
+  const [target, setTarget] = useState(myValues?.singleEditingPot?.target);
   const [error, setError] = useState<myError | null>(null);
 
   const [colorSelected, setColorSelected] = useState<oneColor>(
     myValues?.allAvailablePotColors.find(
-      (item) => item.hex === myValues?.singleEditingPot.theme
+      (item) => item.hex === myValues?.singleEditingPot?.theme
     ) || myValues?.allAvailablePotColors[0]
   );
-  const potName = myValues?.singleEditingPot.name;
+  const potName = myValues?.singleEditingPot?.name;
 
   const onClickColor = (myColor: oneColor) => {
     setColorSelected(myColor);
@@ -27,10 +27,10 @@ const EditPot = () => {
 
   const validateForm = () => {
     const allError = {} as myError;
-    if (target.toString().trim() === "") {
+    if (target?.toString().trim() === "") {
       allError.target = "Please input amount";
     }
-    if (target.toString().trim() !== "" && !Number(target)) {
+    if (target?.toString().trim() !== "" && !Number(target)) {
       allError.target = "Enter a valid amount";
     }
 
@@ -42,11 +42,11 @@ const EditPot = () => {
     let newColorArray = [];
     if (validateForm()) {
       const updatedArray = myValues?.allAvailablePots.map((item) =>
-        item.id === myValues?.singleEditingPot.id
+        item.id === myValues?.singleEditingPot?.id
           ? { ...item, theme: colorSelected.hex, target: Number(target) }
           : item
       );
-      if (colorSelected.hex === myValues?.singleEditingPot.theme) {
+      if (colorSelected.hex === myValues?.singleEditingPot?.theme) {
         newColorArray = myValues?.allAvailablePotColors.map((item) =>
           item.hex === colorSelected.hex ? { ...item, alreadyUsed: true } : item
         );
@@ -58,7 +58,7 @@ const EditPot = () => {
               : item
           )
           .map((item) =>
-            item.hex === myValues?.singleEditingPot.theme
+            item.hex === myValues?.singleEditingPot?.theme
               ? { ...item, alreadyUsed: false }
               : item
           );

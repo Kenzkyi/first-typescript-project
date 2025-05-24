@@ -4,22 +4,23 @@ import cancelIcon from "@/app/asset/public/cancelIcon.svg";
 import Image from "next/image";
 import { useState } from "react";
 import { useFinanceContext } from "../context/FinanceContext";
+import { onePot } from "./model";
 
 const WithdrawMoney = () => {
   const myValues = useFinanceContext()!;
   const [amount, setAmount] = useState<number>(0);
   const [error, setError] = useState("");
-  const [newAmount, setNewAmount] = useState<number>(
-    myValues?.singleWithdrawMoneyDetails?.total
+  const [newAmount, setNewAmount] = useState<number | null>(
+    myValues?.singleWithdrawMoneyDetails?.total || null
   );
 
   const onConfirmWithdrawal = () => {
-    if (Number(amount) >= 1 && !newAmount.toString().startsWith("-")) {
+    if (Number(amount) >= 1 && !newAmount?.toString().startsWith("-")) {
       const updatedArray = myValues?.allAvailablePots.map((item) =>
-        item.id === myValues?.singleWithdrawMoneyDetails.id
+        item.id === myValues?.singleWithdrawMoneyDetails?.id
           ? { ...item, total: newAmount }
           : item
-      );
+      ) as onePot[];
       myValues?.setAllAvailablePots(updatedArray);
       myValues?.setOpenWithdrawMoney(false);
     } else {
@@ -27,13 +28,15 @@ const WithdrawMoney = () => {
     }
   };
 
+  if (!myValues?.singleWithdrawMoneyDetails) return null;
+
   return (
     <div
       className="addMoney"
       onClick={() => myValues?.setOpenWithdrawMoney(false)}>
       <div className="addMoney-modal" onClick={(e) => e.stopPropagation()}>
         <div className="addMoney-modal-title">
-          <h2>Withdraw from ‘{myValues?.singleWithdrawMoneyDetails.name}’</h2>
+          <h2>Withdraw from ‘{myValues?.singleWithdrawMoneyDetails?.name}’</h2>
           <Image
             src={cancelIcon}
             height={25.5}
@@ -61,8 +64,8 @@ const WithdrawMoney = () => {
                   borderRadius: 4,
                   gap: 2,
                   width: `${
-                    (myValues?.singleWithdrawMoneyDetails.total /
-                      myValues?.singleWithdrawMoneyDetails.target) *
+                    (myValues?.singleWithdrawMoneyDetails?.total /
+                      myValues?.singleWithdrawMoneyDetails?.target) *
                     100
                   }%`,
                   maxWidth: `${
@@ -75,19 +78,19 @@ const WithdrawMoney = () => {
                   style={{
                     backgroundColor: "black",
                     borderRadius: "4px 0px 0px 4px",
-                    width: newAmount.toString().startsWith("-")
+                    width: newAmount?.toString().startsWith("-")
                       ? "0%"
                       : `${
                           100 -
                           (Number(amount) /
-                            myValues?.singleWithdrawMoneyDetails.total) *
+                            myValues?.singleWithdrawMoneyDetails?.total) *
                             100
                         }%`,
                   }}></aside>
                 <aside
                   style={{
                     backgroundColor: "red",
-                    width: newAmount.toString().startsWith("-")
+                    width: newAmount?.toString().startsWith("-")
                       ? "100%"
                       : `${
                           (Number(amount) /
@@ -117,10 +120,12 @@ const WithdrawMoney = () => {
             onChange={(e) => {
               setError("");
               const value = Number(e.target.value);
-              if (value <= myValues?.singleWithdrawMoneyDetails.total) {
+              if (
+                value <= Number(myValues?.singleWithdrawMoneyDetails?.total)
+              ) {
                 setAmount(Number(e.target.value));
                 setNewAmount(
-                  Number(myValues?.singleWithdrawMoneyDetails.total) -
+                  Number(myValues?.singleWithdrawMoneyDetails?.total) -
                     Number(e.target.value)
                 );
               }
