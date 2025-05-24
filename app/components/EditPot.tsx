@@ -105,7 +105,7 @@ const EditPot = () => {
             <input
               placeholder="$ e.g 2000"
               value={target}
-              onChange={(e) => setTarget(e.target.value)}
+              onChange={(e) => setTarget(Number(e.target.value))}
             />
             <small>{error?.target}</small>
           </nav>

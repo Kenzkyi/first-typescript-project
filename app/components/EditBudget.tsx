@@ -158,7 +158,7 @@ const EditBudget = () => {
             <input
               placeholder="$ e.g 2000"
               value={maximumSpend}
-              onChange={(e) => setMaximumSpend(e.target.value)}
+              onChange={(e) => setMaximumSpend(Number(e.target.value))}
             />
             <small>{error?.maximumSpend}</small>
           </nav>
