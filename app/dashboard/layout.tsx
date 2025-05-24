@@ -12,7 +12,7 @@ import AddMoney from "../components/AddMoney";
 import WithdrawMoney from "../components/WithdrawMoney";
 import { useContext } from "react";
 
-const dashboardLayout = ({ children }: { children: React.ReactNode }) => {
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const myValue = useContext(myContext);
   return (
     <div className="dashboardLayout">
@@ -36,4 +36,4 @@ const dashboardLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default dashboardLayout;
+export default DashboardLayout;
