@@ -19,7 +19,7 @@ const EditBudget = () => {
   const [colorSelected, setColorSelected] = useState<oneColor>(
     myValues?.allAvailableColors.find(
       (item) => item.hex === myValues?.singleEditingBudget.theme
-    )!
+    ) || myValues?.allAvailableColors[0]
   );
   const [categorySelected, setCategorySelected] = useState(
     myValues?.singleEditingBudget.category

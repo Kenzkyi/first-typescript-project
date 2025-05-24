@@ -16,7 +16,7 @@ const EditPot = () => {
   const [colorSelected, setColorSelected] = useState<oneColor>(
     myValues?.allAvailablePotColors.find(
       (item) => item.hex === myValues?.singleEditingPot.theme
-    )!
+    ) || myValues?.allAvailablePotColors[0]
   );
   const potName = myValues?.singleEditingPot.name;
 
