@@ -76,7 +76,7 @@ const EditBudget = () => {
                 : Number(maximumSpend) - item.spent,
             }
           : item
-      )!;
+      );
       if (colorSelected.hex === myValues?.singleEditingBudget.theme) {
         newColorArray = myValues?.allAvailableColors.map((item) =>
           item.hex === colorSelected.hex ? { ...item, alreadyUsed: true } : item
