@@ -81,7 +81,8 @@ const Budgets = () => {
                       width={13.5}
                       alt="dots"
                       onClick={(e) => {
-                        setShowThreedots(index), e.stopPropagation();
+                        setShowThreedots(index);
+                        e.stopPropagation();
                       }}
                     />
                     {showThreedots === index ? (

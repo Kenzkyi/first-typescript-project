@@ -183,7 +183,8 @@ const Bills = () => {
               <p>Sort by</p>
               <section
                 onClick={(e) => {
-                  setShowSortDropdown(!showSortDropdown), e.stopPropagation();
+                  setShowSortDropdown(!showSortDropdown);
+                  e.stopPropagation();
                 }}>
                 <h6>{dropDownValue}</h6>
                 <Image height={6} width={11} src={arrowDown} alt="more" />
@@ -195,7 +196,8 @@ const Bills = () => {
                   width={15}
                   alt="sort"
                   onClick={(e) => {
-                    setShowSortDropdown(!showSortDropdown), e.stopPropagation();
+                    setShowSortDropdown(!showSortDropdown);
+                    e.stopPropagation();
                   }}
                 />
               </article>
@@ -210,7 +212,8 @@ const Bills = () => {
                           <li
                             key={index}
                             onClick={(e) => {
-                              onClickDropdown(item), e.stopPropagation();
+                              onClickDropdown(item);
+                              e.stopPropagation();
                             }}>
                             {item}
                           </li>
