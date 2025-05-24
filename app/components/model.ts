@@ -41,12 +41,12 @@ export interface contextValue {
   setAllAvailableColors: React.Dispatch<React.SetStateAction<oneColor[]>>;
   openEditBudget: boolean;
   setOpenEditBudget: React.Dispatch<React.SetStateAction<boolean>>;
-  singleEditingBudget: oneBudget | any;
-  setSingleEditingBudget: React.Dispatch<React.SetStateAction<oneBudget | any>>;
+  singleEditingBudget: oneBudget;
+  setSingleEditingBudget: React.Dispatch<React.SetStateAction<oneBudget>>;
   openDeleteBudget: boolean;
   setOpenDeleteBudget: React.Dispatch<React.SetStateAction<boolean>>;
-  singleDeletingBudget: oneBudget | any;
-  setSingleDeleteBudget: React.Dispatch<React.SetStateAction<oneBudget | any>>;
+  singleDeletingBudget: oneBudget;
+  setSingleDeleteBudget: React.Dispatch<React.SetStateAction<oneBudget>>;
   openAddPot: boolean;
   setOpenAddPot: React.Dispatch<React.SetStateAction<boolean>>;
   allAvailablePotColors: oneColor[];
@@ -55,19 +55,19 @@ export interface contextValue {
   setAllAvailablePots: React.Dispatch<React.SetStateAction<onePot[]>>;
   openEditPot: boolean;
   setOpenEditPot: React.Dispatch<React.SetStateAction<boolean>>;
-  singleEditingPot: onePot | any;
+  singleEditingPot: onePot;
   setSingleEditingPot: React.Dispatch<React.SetStateAction<onePot>>;
   openDeletePot: boolean;
   setOpenDeletePot: React.Dispatch<React.SetStateAction<boolean>>;
-  singleDeletingPot: onePot | any;
+  singleDeletingPot: onePot;
   setSingleDeletePot: React.Dispatch<React.SetStateAction<onePot>>;
   openAddMoney: boolean;
   setOpenAddMoney: React.Dispatch<React.SetStateAction<boolean>>;
-  singleAddMoneyDetails: onePot | any;
+  singleAddMoneyDetails: onePot;
   setSingleAddMoneyDetails: React.Dispatch<React.SetStateAction<onePot>>;
   openWithdrawMoney: boolean;
   setOpenWithdrawMoney: React.Dispatch<React.SetStateAction<boolean>>;
-  singleWithdrawMoneyDetails: onePot | any;
+  singleWithdrawMoneyDetails: onePot;
   setSingleWithdrawMoneyDetails: React.Dispatch<React.SetStateAction<onePot>>;
 }
 
