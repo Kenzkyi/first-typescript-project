@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image";
 export interface oneBudget {
   category: string;
   maximum: number;
@@ -16,7 +17,7 @@ export interface onePot {
 }
 
 export interface oneBill {
-  avatar: any;
+  avatar: StaticImageData;
   name: string;
   category: string;
   date: string;
@@ -40,12 +41,12 @@ export interface contextValue {
   setAllAvailableColors: React.Dispatch<React.SetStateAction<oneColor[]>>;
   openEditBudget: boolean;
   setOpenEditBudget: React.Dispatch<React.SetStateAction<boolean>>;
-  singleEditingBudget: oneBudget;
-  setSingleEditingBudget: React.Dispatch<React.SetStateAction<oneBudget>>;
+  singleEditingBudget: oneBudget | any;
+  setSingleEditingBudget: React.Dispatch<React.SetStateAction<oneBudget | any>>;
   openDeleteBudget: boolean;
   setOpenDeleteBudget: React.Dispatch<React.SetStateAction<boolean>>;
-  singleDeletingBudget: oneBudget;
-  setSingleDeleteBudget: React.Dispatch<React.SetStateAction<oneBudget>>;
+  singleDeletingBudget: oneBudget | any;
+  setSingleDeleteBudget: React.Dispatch<React.SetStateAction<oneBudget | any>>;
   openAddPot: boolean;
   setOpenAddPot: React.Dispatch<React.SetStateAction<boolean>>;
   allAvailablePotColors: oneColor[];
@@ -54,19 +55,19 @@ export interface contextValue {
   setAllAvailablePots: React.Dispatch<React.SetStateAction<onePot[]>>;
   openEditPot: boolean;
   setOpenEditPot: React.Dispatch<React.SetStateAction<boolean>>;
-  singleEditingPot: onePot;
+  singleEditingPot: onePot | any;
   setSingleEditingPot: React.Dispatch<React.SetStateAction<onePot>>;
   openDeletePot: boolean;
   setOpenDeletePot: React.Dispatch<React.SetStateAction<boolean>>;
-  singleDeletingPot: onePot;
+  singleDeletingPot: onePot | any;
   setSingleDeletePot: React.Dispatch<React.SetStateAction<onePot>>;
   openAddMoney: boolean;
   setOpenAddMoney: React.Dispatch<React.SetStateAction<boolean>>;
-  singleAddMoneyDetails: onePot;
+  singleAddMoneyDetails: onePot | any;
   setSingleAddMoneyDetails: React.Dispatch<React.SetStateAction<onePot>>;
   openWithdrawMoney: boolean;
   setOpenWithdrawMoney: React.Dispatch<React.SetStateAction<boolean>>;
-  singleWithdrawMoneyDetails: onePot;
+  singleWithdrawMoneyDetails: onePot | any;
   setSingleWithdrawMoneyDetails: React.Dispatch<React.SetStateAction<onePot>>;
 }
 
