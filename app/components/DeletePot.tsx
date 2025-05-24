@@ -10,12 +10,12 @@ const DeleteBudget = () => {
   const confirmDeletion = () => {
     const updatedArray = myValues?.allAvailablePots.filter(
       (item) => item.id !== myValues?.singleDeletingPot.id
-    )!;
+    );
     const updatedColorArray = myValues?.allAvailablePotColors.map((item) =>
       item.hex === myValues?.singleDeletingPot.theme
         ? { ...item, alreadyUsed: false }
         : item
-    )!;
+    );
     myValues?.setAllAvailablePotColors(updatedColorArray);
     myValues?.setAllAvailablePots(updatedArray);
     myValues?.setOpenDeletePot(false);

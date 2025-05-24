@@ -10,12 +10,12 @@ const DeleteBudget = () => {
   const confirmDeletion = () => {
     const updatedArray = myValues?.allAvailableBudget.filter(
       (item) => item.id !== myValues?.singleDeletingBudget.id
-    )!;
+    );
     const updatedColorArray = myValues?.allAvailableColors.map((item) =>
       item.hex === myValues?.singleDeletingBudget.theme
         ? { ...item, alreadyUsed: false }
         : item
-    )!;
+    );
     myValues?.setAllAvailableColors(updatedColorArray);
     myValues?.setAllAvailableBudget(updatedArray);
     myValues?.setOpenDeleteBudget(false);

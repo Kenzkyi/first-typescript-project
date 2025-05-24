@@ -19,7 +19,7 @@ const WithdrawMoney = () => {
         item.id === myValues?.singleWithdrawMoneyDetails.id
           ? { ...item, total: newAmount }
           : item
-      )!;
+      );
       myValues?.setAllAvailablePots(updatedArray);
       myValues?.setOpenWithdrawMoney(false);
     } else {

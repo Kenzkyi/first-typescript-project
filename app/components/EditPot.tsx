@@ -3,7 +3,6 @@ import "@/app/styles/addComponent.scss";
 import cancelIcon from "@/app/asset/public/cancelIcon.svg";
 import Image from "next/image";
 import arrowDown from "@/app/asset/public/arrowDown.svg";
-import { colorDropArray } from "../asset/datas";
 import { useState } from "react";
 import { useFinanceContext } from "../context/FinanceContext";
 import { myError, oneColor } from "./model";
@@ -46,7 +45,7 @@ const EditPot = () => {
         item.id === myValues?.singleEditingPot.id
           ? { ...item, theme: colorSelected.hex, target: Number(target) }
           : item
-      )!;
+      );
       if (colorSelected.hex === myValues?.singleEditingPot.theme) {
         newColorArray = myValues?.allAvailablePotColors.map((item) =>
           item.hex === colorSelected.hex ? { ...item, alreadyUsed: true } : item
@@ -62,7 +61,7 @@ const EditPot = () => {
             item.hex === myValues?.singleEditingPot.theme
               ? { ...item, alreadyUsed: false }
               : item
-          )!;
+          );
       }
       console.log(updatedArray);
       myValues?.setAllAvailablePots(updatedArray);

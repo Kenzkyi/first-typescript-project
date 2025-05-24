@@ -92,7 +92,7 @@ const EditBudget = () => {
             item.hex === myValues?.singleEditingBudget.theme
               ? { ...item, alreadyUsed: false }
               : item
-          )!;
+          );
       }
       myValues?.setAllAvailableBudget(updatedArray);
       myValues?.setAllAvailableColors(newColorArray);

@@ -1,10 +1,10 @@
 export interface oneBudget {
-  category?: string;
-  maximum?: number;
-  theme?: string;
-  spent?: number;
-  remaining?: number;
-  id?: number;
+  category: string;
+  maximum: number;
+  theme: string;
+  spent: number;
+  remaining: number;
+  id: number;
 }
 
 export interface onePot {
@@ -40,12 +40,12 @@ export interface contextValue {
   setAllAvailableColors: React.Dispatch<React.SetStateAction<oneColor[]>>;
   openEditBudget: boolean;
   setOpenEditBudget: React.Dispatch<React.SetStateAction<boolean>>;
-  singleEditingBudget: oneBudget;
-  setSingleEditingBudget: React.Dispatch<React.SetStateAction<oneBudget>>;
+  singleEditingBudget: oneBudget | any;
+  setSingleEditingBudget: React.Dispatch<React.SetStateAction<oneBudget | any>>;
   openDeleteBudget: boolean;
   setOpenDeleteBudget: React.Dispatch<React.SetStateAction<boolean>>;
-  singleDeletingBudget: oneBudget;
-  setSingleDeleteBudget: React.Dispatch<React.SetStateAction<oneBudget>>;
+  singleDeletingBudget: oneBudget | any;
+  setSingleDeleteBudget: React.Dispatch<React.SetStateAction<oneBudget | any>>;
   openAddPot: boolean;
   setOpenAddPot: React.Dispatch<React.SetStateAction<boolean>>;
   allAvailablePotColors: oneColor[];
